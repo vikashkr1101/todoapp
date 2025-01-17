@@ -29,7 +29,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('MySonarQubeServer') {
+                withSonarQubeEnv(credentialsId: 'sonarqube-token','MySonarQubeServer') {
                     sh '''
                         sonar-scanner \
                             -Dsonar.projectKey=mytodoapp \
